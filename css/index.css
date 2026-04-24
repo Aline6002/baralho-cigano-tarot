@@ -1,0 +1,48 @@
+/* Fundo e Cores */
+body {
+    background-color: #0f051a;
+    color: #e0c068;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+#mesa {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 40px;
+    min-height: 250px;
+}
+
+/* Estilo das Cartas */
+.carta {
+    width: 100px;
+    height: 160px;
+    border: 2px solid #e0c068;
+    border-radius: 8px;
+    cursor: pointer;
+    background-image: url('../img/verso.jpg'); /* Caminho saindo da pasta css */
+    background-size: cover;
+    transition: transform 0.3s ease;
+}
+
+.carta:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 15px #e0c068;
+}
+
+/* Quando a carta for revelada */
+.revelada {
+    background-image: none;
+    background-color: #fff;
+    color: #000;
+}
+
+#interpretacao {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+}

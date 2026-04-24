@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oráculo Online | Tarot e Cigano</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+    <header>
+        <h1>Oráculo místico</h1>
+        <nav>
+            <button onclick="mudarBaralho('cigano')">Baralho Cigano</button>
+            <button onclick="mudarBaralho('tarot')">Tarot</button>
+        </nav>
+    </header>
+
+    <main>
+        <div id="mesa">
+            </div>
+
+        <section id="interpretacao">
+            <h2 id="titulo-carta">Escolha seu baralho e mentalize sua pergunta</h2>
+            <p id="desc-carta"></p>
+        </section>
+        
+        <button id="btn-embaralhar" onclick="iniciarJogo()">Embaralhar Cartas</button>
+    </main>
+
+    <script src="js/cartas.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
