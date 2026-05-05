@@ -4,7 +4,6 @@ let cartasSorteio = [];
 // Função para definir qual baralho usar
 function mudarBaralho(tipo) {
     baralhoAtual = tipo;
-    // Remove destaque de botões (se houver no CSS)
     console.log("Baralho alterado para: " + tipo);
     reiniciarMesa();
 }
@@ -44,13 +43,15 @@ function virarCarta(elemento, index) {
 
     const informacao = cartasSorteio[index];
 
-    // Adiciona classe para estilo e mostra a imagem/nome
+    // Adiciona classe para estilo e mostra a imagem
     elemento.classList.add('revelada');
     
-    // Define a imagem da carta (ajuste o caminho se necessário)
+    // Define o caminho da pasta
     const pastaImg = baralhoAtual === "cigano" ? "cigano" : "tarot";
-    elemento.style.backgroundImage = `url('img/${pastaImg}/${informacao.id}.jpg')`;
-    elemento.style.backgroundColor = "white"; // Fundo caso a imagem falhe
+    
+    // O código busca o nome da imagem declarada no arquivo cartas.js
+    elemento.style.backgroundImage = `url('img/${pastaImg}/${informacao.imagem}')`;
+    elemento.style.backgroundColor = "white"; 
 
     // Exibe o significado abaixo
     document.getElementById('titulo-carta').innerText = informacao.nome;
