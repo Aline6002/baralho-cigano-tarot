@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
 
 * {
     box-sizing: border-box;
@@ -215,28 +216,50 @@ main {
 }
 
 #btn-embaralhar {
-    background: linear-gradient(135deg, #7c3aed, #c084fc);
+    font-family: 'Space Grotesk', sans-serif; /* Fonte geométrica e moderna */
+    background: linear-gradient(135deg, #7c3aed, #a78bfa);
     color: #05050a;
-    border: none;
-    padding: 0.9rem 2.8rem;
-    font-size: 1.15rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1.1rem 3.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+#btn-embaralhar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transition: all 0.6s ease;
 }
 
 #btn-embaralhar:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 12px 30px rgba(124, 58, 237, 0.7);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 18px 40px rgba(124, 58, 237, 0.7);
+    background: linear-gradient(135deg, #9333ea, #c084fc);
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+#btn-embaralhar:hover::before {
+    left: 100%;
 }
 
 #btn-embaralhar:active {
     transform: translateY(2px) scale(0.98);
+    box-shadow: 0 5px 15px rgba(124, 58, 237, 0.5);
 }
 
 ::-webkit-scrollbar {
