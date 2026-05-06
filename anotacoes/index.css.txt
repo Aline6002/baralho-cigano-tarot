@@ -1,0 +1,242 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0d0614;
+    color: #e6c687;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+header {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: linear-gradient(to bottom, #180d24, #0d0614);
+    border-bottom: 2px solid #e6c687;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba(230, 198, 135, 0.5);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+nav button {
+    background-color: #26133a;
+    color: #e6c687;
+    border: 1px solid #e6c687;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.95rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+nav button:hover {
+    background-color: #e6c687;
+    color: #0d0614;
+    box-shadow: 0 0 10px #e6c687;
+    transform: translateY(-2px);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.opcoes-tiragem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.opcoes-tiragem select,
+.opcoes-tiragem input {
+    background-color: #26133a;
+    color: #e6c687;
+    border: 1px solid #e6c687;
+    padding: 0.5rem 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.opcoes-tiragem select:focus,
+.opcoes-tiragem input:focus {
+    outline: none;
+    box-shadow: 0 0 8px #e6c687;
+}
+
+#mesa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px;
+    width: 100%;
+    min-height: 250px;
+}
+
+.carta {
+    width: 140px;
+    height: 210px;
+    border: 3px solid #e6c687;
+    border-radius: 12px;
+    cursor: pointer;
+    background-image: url('../img/capa1.jpg');
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    flex-shrink: 0;
+    background-color: #0d0614;
+}
+
+@media (min-width: 600px) {
+    .carta {
+        width: 150px;
+        height: 220px;
+    }
+}
+
+.carta:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 0 15px #e6c687;
+}
+
+.carta.revelada {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: default;
+    animation: virarCartaAnim 0.5s ease-in-out;
+}
+
+@keyframes virarCartaAnim {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+#interpretacao {
+    max-width: 600px;
+    width: 90%;
+    margin: 1.5rem 0;
+    padding: 1.2rem;
+    background: rgba(38, 19, 58, 0.5);
+    border: 1px solid #e6c687;
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px rgba(230, 198, 135, 0.2), 0 4px 10px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#interpretacao h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    text-shadow: 0 0 5px #e6c687;
+}
+
+#interpretacao p {
+    font-size: 1rem;
+    color: #d1b886;
+    margin-bottom: 0.8rem;
+}
+
+#resumo-tiragem {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #ffd276;
+    font-weight: bold;
+    margin-top: 0.3rem;
+}
+
+#btn-embaralhar {
+    background: linear-gradient(45deg, #e6c687, #ffe39f);
+    color: #0d0614;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(230, 198, 135, 0.4);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+#btn-embaralhar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 198, 135, 0.7);
+}
+
+#btn-embaralhar:active {
+    transform: translateY(1px);
+}
+
+/* Ajustes específicos para dispositivos móveis */
+@media (max-width: 600px) {
+    main {
+        padding: 1rem 0.5rem;
+    }
+
+    .opcoes-tiragem {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .opcoes-tiragem input, 
+    .opcoes-tiragem select {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .carta {
+        width: 125px;
+        height: 185px;
+    }
+    
+    #interpretacao h2 {
+        font-size: 1.2rem;
+    }
+
+    #btn-embaralhar {
+        width: 85%;
+        padding: 0.7rem 1rem;
+        font-size: 1rem;
+    }
+}

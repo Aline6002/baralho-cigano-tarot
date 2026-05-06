@@ -1,35 +1,49 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oráculo Online | Tarot e Cigano</title>
+    <title>Oráculo de Cartas</title>
     <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
-
     <header>
-        <h1>Oráculo místico</h1>
+        <h1>Oráculo de Cartas</h1>
         <nav>
-            <button onclick="mudarBaralho('cigano')">Baralho Cigano</button>
-            <button onclick="mudarBaralho('tarot')">Tarot</button>
+            <button id="btn-cigano">Baralho Cigano</button>
+            <button id="btn-tarot">Tarot</button>
         </nav>
     </header>
-
     <main>
-        <div id="mesa">
+        <div class="opcoes-tiragem">
+            <label for="input-pergunta">Qual é a sua pergunta ou intenção?</label>
+            <input type="text" id="input-pergunta" placeholder="Digite sua pergunta aqui..."
+                style="width: 100%; max-width: 350px;">
         </div>
 
-        <section id="interpretacao">
-            <h2 id="titulo-carta">Escolha seu baralho e mentalize sua pergunta</h2>
-            <p id="desc-carta"></p>
-            <div id="resumo-tiragem" style="margin-top: 15px; font-size: 1.1rem; color: #e6c687;"></div>
-        </section>
+        <div class="opcoes-tiragem">
+            <label for="qtd-cartas">Quantidade de cartas:</label>
+            <select id="qtd-cartas">
+                <option value="1">1 Carta</option>
+                <option value="3" selected>3 Cartas</option>
+                <option value="5">5 Cartas</option>
+            </select>
+        </div>
 
-        <button id="btn-embaralhar" onclick="iniciarJogo()">Embaralhar Cartas</button>
+        <button id="btn-embaralhar">Embaralhar e Tirar Carta</button>
+        <div id="mesa"></div>
+        <div id="interpretacao">
+            <h2>Selecione um baralho</h2>
+            <p>Clique em um dos botões acima para começar.</p>
+            <div id="resumo-tiragem"></div>
+        </div>
     </main>
+
+    <footer>
+        <p>&copy; 2026 - Oráculo e Tiragem de Cartas. Todos os direitos reservados.</p>
+    </footer>
 
     <script src="js/cartas.js"></script>
     <script src="js/index.js"></script>
