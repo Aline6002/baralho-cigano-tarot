@@ -4,41 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oráculo de Cartas</title>
+    <title>Oráculo de Cartas • Portal Místico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
+    <div class="estrelas-bg"></div>
+
     <header>
-        <h1>Oráculo de Cartas</h1>
-        <nav>
-            <button id="btn-cigano">Baralho Cigano</button>
-            <button id="btn-tarot">Tarot</button>
-        </nav>
+        <div class="header-content">
+            <button id="btn-tema" class="theme-toggle" title="Alternar Energia do Portal">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+            <h1><i class="fa-solid fa-moon"></i> Oráculo de Cartas <i class="fa-solid fa-sun"></i></h1>
+            <p class="subtitle">Escolha sua linha de conexão com o invisível</p>
+            <nav>
+                <button id="btn-cigano">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Baralho Cigano
+                </button>
+                <button id="btn-tarot">
+                    <i class="fa-solid fa-eye"></i> Tarot
+                </button>
+            </nav>
+        </div>
     </header>
+
     <main>
-        <div class="opcoes-tiragem">
-            <label for="input-pergunta">Qual é a sua pergunta ou intenção?</label>
-            <input type="text" id="input-pergunta" placeholder="Digite sua pergunta aqui..."
-                style="width: 100%; max-width: 350px;">
+        <section class="painel-configuracao">
+
+            <div class="opcoes-tiragem">
+                <label for="input-pergunta">
+                    <i class="fa-solid fa-scroll"></i> Qual é a sua pergunta ou intenção?
+                </label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-comment-dots input-icon"></i>
+                    <input type="text" id="input-pergunta" placeholder="Concentre-se e digite aqui sua questão...">
+                </div>
+            </div>
+
+            <div class="opcoes-tiragem">
+                <label for="qtd-cartas">
+                    <i class="fa-solid fa-layer-group"></i> Quantidade de cartas:
+                </label>
+                <div class="select-wrapper">
+                    <i class="fa-solid fa-hand-sparkles select-icon"></i>
+                    <select id="qtd-cartas">
+                        <option value="1">1 Carta (Conselho Rápido)</option>
+                        <option value="3" selected>3 Cartas (Passado, Presente e Futuro)</option>
+                        <option value="5">5 Cartas (Análise Profunda)</option>
+                    </select>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="action-area">
+            <button id="btn-embaralhar">
+                <i class="fa-solid fa-shuffle"></i> Embaralhar e Tirar Carta
+            </button>
         </div>
 
-        <div class="opcoes-tiragem">
-            <label for="qtd-cartas">Quantidade de cartas:</label>
-            <select id="qtd-cartas">
-                <option value="1">1 Carta</option>
-                <option value="3" selected>3 Cartas</option>
-                <option value="5">5 Cartas</option>
-            </select>
-        </div>
+        <section class="mesa-container">
+            <div id="mesa"></div>
+        </section>
 
-        <button id="btn-embaralhar">Embaralhar e Tirar Carta</button>
-        <div id="mesa"></div>
-        <div id="interpretacao">
+        <section id="interpretacao" class="painel-leitura">
+            <div class="decoracao-leitura-topo">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-of-david"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
             <h2>Selecione um baralho</h2>
-            <p>Clique em um dos botões acima para começar.</p>
+            <p>Clique em um dos botões do topo para iniciar a sua conexão com o Oráculo.</p>
             <div id="resumo-tiragem"></div>
-        </div>
+        </section>
     </main>
 
     <footer>
