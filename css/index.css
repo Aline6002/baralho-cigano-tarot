@@ -544,9 +544,12 @@ footer p {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    color: var(--primary-light);
+    background: transparent;
+    
+    /* Remove totalmente a borda e deixa o ícone bem discreto */
+    border: none !important;
+    color: rgba(255, 255, 255, 0.12);
+    
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -554,42 +557,52 @@ footer p {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    font-size: 1.1rem;
+    
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 9999;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
 }
 
+/* O botão ganha vida e revela-se apenas no hover (computador) */
 .theme-toggle:hover {
     transform: scale(1.1) rotate(15deg);
-    box-shadow: 0 0 15px var(--primary-glow);
-    border-color: var(--primary-light);
+    color: var(--primary-light);
+    text-shadow: 0 0 10px var(--primary-glow);
 }
 
 /* --- AJUSTE RESPONSIVO PARA CELULARES (Telas até 768px) --- */
 @media (max-width: 768px) {
     .theme-toggle {
-        position: fixed !important;
-        top: auto !important;
-        right: 1.5rem !important;
-        bottom: 1.5rem !important;
-        width: 55px !important;
-        height: 55px !important;
-        font-size: 1.4rem !important;
-        background: rgba(15, 10, 30, 0.95) !important;
-        border: 2px solid var(--primary) !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px var(--primary-glow) !important;
-
-        /* Força o botão para a camada superior absoluta no mobile */
+        /* Mantém no topo superior direito no celular, na região que você circulou */
+        position: absolute !important;
+        top: 1.2rem !important;
+        right: 1rem !important;
+        bottom: auto !important; /* Cancela a posição de baixo */
+        
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 1.2rem !important;
+        
+        /* Totalmente limpo e sem bordas */
+        background: transparent !important;
+        border: none !important;
+        color: rgba(255, 255, 255, 0.15) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: none !important;
+        
         z-index: 999999 !important;
         pointer-events: auto !important;
     }
-
-    body.modo-solar .theme-toggle {
-        background: rgba(40, 20, 5, 0.95) !important;
-        border-color: var(--primary) !important;
+    
+    /* Quando o usuário tocar nele no celular, ele brilha sutilmente */
+    .theme-toggle:active {
+        color: var(--primary-light) !important;
+        text-shadow: 0 0 10px var(--primary-glow) !important;
+        transform: scale(1.05);
     }
 }
 
