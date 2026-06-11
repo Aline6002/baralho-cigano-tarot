@@ -221,15 +221,29 @@ function mostrarMensagemFinal() {
 }
 
 // --- ALTERNADOR DE ENERGIAS CORES DO PORTAL (LUNAR / SOLAR) ---
-document.getElementById('btn-tema').addEventListener('click', () => {
-    const body = document.body;
-    const icone = document.querySelector('#btn-tema i');
+document.addEventListener('DOMContentLoaded', () => {
+    const botaoTema = document.getElementById('btn-tema');
     
-    body.classList.toggle('modo-solar');
-    
-    if (body.classList.contains('modo-solar')) {
-        icone.className = 'fa-solid fa-sun';
-    } else {
-        icone.className = 'fa-solid fa-moon';
+    if (botaoTema) {
+        const alternarEnergia = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const body = document.body;
+            const icone = botaoTema.querySelector('i');
+            
+            body.classList.toggle('modo-solar');
+            
+            if (body.classList.contains('modo-solar')) {
+                icone.className = 'fa-solid fa-sun';
+            } else {
+                icone.className = 'fa-solid fa-moon';
+            }
+        };
+
+        // Escuta o toque imediato em smartphones e tablets
+        botaoTema.addEventListener('touchstart', alternarEnergia, { passive: false });
+        // Mantém o suporte para cliques de mouse em desktops
+        botaoTema.addEventListener('click', alternarEnergia);
     }
 });
